@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+const port = process.env.PORT || 7700;
 
 const { connection } = require("./db");
 const { userRouter } = require("./routes/userRoutes");
@@ -20,7 +21,7 @@ app.get("/",(req,res)=>{
 })
 
 
-app.listen(7700,async()=>{
+app.listen(port,async()=>{
     try {
         await connection;
         console.log("Connected to the DB");
